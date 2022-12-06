@@ -1,0 +1,82 @@
+<html>
+  <head>
+    <title>Lechunk's Art Program</title>
+  </head>
+  <body>
+    <h1>Lechunk's Art Program</h1>
+
+    <p>Welcome to Lechunk's Art Program, where you can create your own masterpieces using the keyboard!</p>
+
+    <p>Use the following keys to draw:</p>
+    <ul>
+      <li>1 - draw a red square</li>
+      <li>2 - draw a blue circle</li>
+      <li>3 - draw a green triangle</li>
+    </ul>
+
+    <p>To clear the canvas, press the space bar.</p>
+
+    <canvas id="canvas" width="500" height="500"></canvas>
+
+    <script>
+      // get a reference to the canvas element
+      const canvas = document.getElementById('canvas');
+
+      // get the 2D rendering context for the canvas
+      const ctx = canvas.getContext('2d');
+
+      // set the fill style for the shapes
+      ctx.fillStyle = '#000000';
+
+      // create a function to draw a square
+      function drawSquare(x, y) {
+        ctx.fillStyle = '#FF0000'; // red
+        ctx.fillRect(x, y, 50, 50);
+      }
+
+      // create a function to draw a circle
+      function drawCircle(x, y) {
+        ctx.fillStyle = '#0000FF'; // blue
+        ctx.beginPath();
+        ctx.arc(x, y, 25, 0, 2 * Math.PI);
+        ctx.fill();
+      }
+
+      // create a function to draw a triangle
+      function drawTriangle(x, y) {
+        ctx.fillStyle = '#00FF00'; // green
+        ctx.beginPath();
+        ctx.moveTo(x, y);
+        ctx.lineTo(x + 50, y);
+        ctx.lineTo(x + 25, y - 50);
+        ctx.fill();
+      }
+
+      // create a function to clear the canvas
+      function clearCanvas() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+      }
+
+      // add an event listener to the window to listen for key events
+      window.addEventListener('keydown', event => {
+        // get the key that was pressed
+        const key = event.key;
+
+        // get the position of the last shape drawn on the canvas
+        const x = canvas.width / 2;
+        const y = canvas.height / 2;
+
+        // check which key was pressed and draw the corresponding shape
+        if (key === '1') {
+          drawSquare(x, y);
+        } else if (key === '2') {
+          drawCircle(x, y);
+        } else if (key === '3') {
+          drawTriangle(x, y);
+        } else if (key === ' ') {
+          clearCanvas();
+        }
+      });
+    </script>
+  </body>
+</html>
