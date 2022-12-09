@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Pong</title>
+    <style>
+      body {
+        background-color: black;
+      }
+
+      .game {
+        width: 500px;
+        height: 500px;
+        margin: auto;
+        border: 1px solid white;
+        position: relative;
+      }
+
+      .paddle {
+        width: 10px;
+        height: 100px;
+        position: absolute;
+        background-color: white;
+      }
+
+      .paddle.left {
+        top: 200px;
+        left: 10px;
+      }
+
+      .paddle.right {
+        top: 200px;
+        right: 10px;
+      }
+
+      .ball {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        position: absolute;
+        background-color: white;
+        top: 250px;
+        left: 245px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="game">
+      <div class="paddle left"></div>
+      <div class="paddle right"></div>
+      <div class="ball"></div>
+    </div>
+  </body>
+</html>
